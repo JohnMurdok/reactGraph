@@ -14,7 +14,7 @@ $ git clone https://github.com/JohnMurdok/reactGraph.git
 Install the dependencies and devDependencies.
 
 ```sh
-$ cd reactGraphQL
+$ cd reactGraph
 //will install both client and server
 $ npm run firstInstall 
 ```
