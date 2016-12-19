@@ -1,7 +1,7 @@
 {
-  "name": "ingima",
+  "name": "react-graph",
   "version": "1.0.0",
-  "description": "Ingima test technique",
+  "description": "React Graph test technique",
   "main": "server.js",
   "scripts": {
 	"firstInstall": "npm install && npm run installServer && npm run installClient ",

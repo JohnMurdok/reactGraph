@@ -1,5 +1,5 @@
-import React, { Component, Proptypes } from 'react';
-import { connect, withApollo} from 'react-apollo';
+import React, { Component } from 'react';
+import { withApollo} from 'react-apollo';
 import ApolloClient from 'apollo-client';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import baseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
@@ -36,7 +36,6 @@ class App extends Component {
   updateList() {
       const query = gql`query { links { _id, name, url, vote, favorite } }`;
       const links = ({data}) => {
-        console.log(data);
         return (
          <LinkList links={data.links} handler={this.updateListEvent}/>
         );

@@ -29,4 +29,6 @@ $ npm run start
 Both mongodb, server and client will be launched concurrently.
 MongoDB listens port 27017
 The server listens port 9000
-The client listens port 3000 (for BrowserSync 3001 too)
+The client listens port 3000
+
+The app is ready on http://localhost:3000

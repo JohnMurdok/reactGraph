@@ -1,4 +1,4 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
 import Dialog from 'material-ui/Dialog';
 import FloatingActionButton from 'material-ui/FloatingActionButton';
 import TextField from 'material-ui/TextField';
@@ -8,13 +8,12 @@ import ApolloClient from 'apollo-client';
 import { withApollo } from 'react-apollo';
 
 //GraphQL component
-import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
 
 
 //Custom style
 const btnStyle = {
-    position:"absolute",
+    position:"fixed",
     bottom:"16px",
     right:"16px"
 };

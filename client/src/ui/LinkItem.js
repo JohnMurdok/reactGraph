@@ -2,18 +2,18 @@ import {ListItem} from 'material-ui/List';
 import Divider from 'material-ui/Divider';
 import ActionGrade from 'material-ui/svg-icons/action/grade';
 import {yellow500} from 'material-ui/styles/colors';
-import React, { Component, Proptypes } from 'react';
+import React, { Component } from 'react';
 
 //GraphQL component
 import ApolloClient from 'apollo-client';
-import { graphql, withApollo } from 'react-apollo';
+import { withApollo } from 'react-apollo';
 import gql from 'graphql-tag';
 
 
 class LinkItem extends Component {
     link = null;
 
-    async onFavorite(){
+    onFavorite = async () => {
 
         const mutation = gql` mutation ($data: LinkInput!) { addFavLink (data: $data) }`;
         var item = {
@@ -22,6 +22,9 @@ class LinkItem extends Component {
         };
         try{
             let req = await this.updateLink(item, mutation);
+            if(!req){
+               return;
+            }
             this.props.link.favorite = !this.props.link.favorite;
             this.setState({
                 link:this.props.link
@@ -31,14 +34,17 @@ class LinkItem extends Component {
         }
     }
 
-    async onVote(num){
+     onVote = async (num) => {
         const mutation = gql` mutation ($data: LinkInput!) { voteLink (data: $data) }`;
         var item = {
             "_id":this.props.link._id,
             "vote": this.props.link.vote+num
         };
         try{
-            let req = await this.updateLink(this.props.link, mutation);
+            let req = await this.updateLink(item, mutation);
+            if(!req){
+               return;
+            }
             this.props.link.vote = this.props.link.vote+num;
             this.setState({
                 link:this.props.link

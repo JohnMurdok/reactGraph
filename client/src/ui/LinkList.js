@@ -1,32 +1,16 @@
-import {List, ListItem} from 'material-ui/List';
+import React, { Component } from 'react';
+import {List} from 'material-ui/List';
 import Divider from 'material-ui/Divider';
-import IconButton from 'material-ui/IconButton';
-import ActionGrade from 'material-ui/svg-icons/action/grade';
-import {yellow500} from 'material-ui/styles/colors';
-import React, { Component, Proptypes } from 'react';
 import LinkItem from "./LinkItem";
 
-function renderList(links) {
-    if (!!links && links.length > 0) {      
-        return links.map((link, index) =>{
-            link.index = index+1;
-            return (
-            <LinkItem key={index} link={link} />
-            )   
-        } 
-        );
-    }
-    else return [];
-}
-
 class LinkList extends Component {
-    render() {
-        const links = renderList(this.props.links);
+    render = () => {
+        const links = this.renderList(this.props.links);
         const styleList = {
             position:"relative",
-            width:"50%",
+            width:"70%",
             "maxHeight":"100%",
-            "marginLeft":"25%",
+            "marginLeft":"15%",
             "overflowY":"auto",
             "zindex":0,
             "padding":0
@@ -38,6 +22,20 @@ class LinkList extends Component {
             </List>
         );
     }
+    
+    renderList = (links) => {
+        if (!!links && links.length > 0) {      
+            return links.map((link, index) =>{
+                link.index = index+1;
+                return (
+                <LinkItem key={index} link={link} />
+                )   
+            } 
+            );
+        }
+        else return [];
+    }
+
 }
 
 export default LinkList;
